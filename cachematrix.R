@@ -15,9 +15,30 @@
 + getInverse<-function()m
 + 
 + ##Show List
-+ list(set=set, get=get, setinverse=setinverse, getinverse=getinverse)
++ list(set=set, get=get, 
+          setinverse = setinverse,
+          getinverse = getinverse)
+}
 + 
 > ##Now, solve for inverse matrix
 > ##Cache solve function to show inverse
 > cachesolve<-function(x,...) {
-+ [,1], [,2], [,3], [,4]
+
+  ## The next function will get the value
+  m <- x$getInverse()
+  
+  ##Now, we are saying if the value is not empty, return value.  
+  if(!is.null(m)) { 
+
+    return(m)
+    }
+  
+##Get Value of matrix
+  data<- $get()
+  
+  ##Calculate Inverse matrix value
+  m<-solve(data)
+  
+  ##Cache result
+  x$setInverse(m)
+ 
